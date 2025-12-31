@@ -2,5 +2,17 @@
 .vscode
 
 __pycache__
-migrations
 postgres
+
+# Database
+*.sqlite3
+db.sqlite3
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*.egg-info/
