@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OST - Loan Management System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        .section h2 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        .credentials {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #ffc107;
+            margin: 15px 0;
+        }
+        .credentials strong {
+            color: #856404;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        .button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        .button.secondary {
+            background: #28a745;
+        }
+        .button.secondary:hover {
+            background: #218838;
+        }
+        .api-list {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .api-endpoint {
+            padding: 8px;
+            background: #e9ecef;
+            margin: 5px 0;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #28a745;
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            color: #856404;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .tech-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+        }
+        .tech-item strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏦 OST - Loan Management System</h1>
+        <p class="subtitle">Проект для курса "Основы современных технологий"</p>
+        <p style="text-align: center;">
+            <span class="status">✅ Сервер запущен</span>
+        </p>
+
+        <div class="section">
+            <h2>🌐 Доступ к приложению</h2>
+
+            <div class="warning">
+                ⚠️ <strong>Важно:</strong> Вы работаете в Claude Code в браузере. Чтобы открыть админ-панель в браузере:
+                <ol>
+                    <li>В Claude Code найдите вкладку <strong>"PORTS"</strong> в нижней панели</li>
+                    <li>Нажмите <strong>"Forward a Port"</strong></li>
+                    <li>Введите порт: <code>8000</code></li>
+                    <li>Откроется ссылка в браузере</li>
+                    <li>Добавьте <code>/admin/</code> к URL</li>
+                </ol>
+            </div>
+
+            <p><strong>Локальный доступ (внутри контейнера):</strong></p>
+            <a href="http://localhost:8000/admin/" class="button" target="_blank">Админ-панель Django</a>
+            <a href="http://localhost:8000/api/" class="button secondary" target="_blank">API Endpoints</a>
+        </div>
+
+        <div class="section">
+            <h2>🔑 Учетные данные администратора</h2>
+            <div class="credentials">
+                <p><strong>Email:</strong> <code>admin@loanms.com</code></p>
+                <p><strong>Пароль:</strong> <code>admin123</code></p>
+                <p><strong>Роль:</strong> <code>ADMIN</code></p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📡 API Endpoints</h2>
+            <p><strong>Base URL:</strong> <code>http://localhost:8000/api</code></p>
+
+            <h3>User Management:</h3>
+            <div class="api-list">
+                <div class="api-endpoint">POST /api/user/signup/ - Регистрация</div>
+                <div class="api-endpoint">POST /api/user/login/ - Вход</div>
+                <div class="api-endpoint">GET /api/user/profile/ - Профиль</div>
+                <div class="api-endpoint">POST /api/user/create-admin/ - Создать админа</div>
+                <div class="api-endpoint">GET /api/user/list-agent/ - Список клиентов</div>
+                <div class="api-endpoint">GET /api/user/list-approvals/ - Все пользователи</div>
+            </div>
+
+            <h3>Loan Management:</h3>
+            <div class="api-list">
+                <div class="api-endpoint">POST /api/loan/customer-loan/ - Создать кредит</div>
+                <div class="api-endpoint">PUT /api/loan/approve-reject-loan/&lt;id&gt;/ - Одобрить/отклонить</div>
+                <div class="api-endpoint">GET /api/loan/list-loans-admin-agent/ - Все кредиты</div>
+                <div class="api-endpoint">GET /api/loan/list-loans-customer/ - Мои кредиты</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ Технологический стек</h2>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <strong>Backend</strong>
+                    Django 3.2.5
+                </div>
+                <div class="tech-item">
+                    <strong>API</strong>
+                    Django REST Framework
+                </div>
+                <div class="tech-item">
+                    <strong>Auth</strong>
+                    JWT Tokens (2h)
+                </div>
+                <div class="tech-item">
+                    <strong>Database</strong>
+                    SQLite / PostgreSQL
+                </div>
+                <div class="tech-item">
+                    <strong>Security</strong>
+                    PBKDF2 + SHA256
+                </div>
+                <div class="tech-item">
+                    <strong>DevOps</strong>
+                    Docker Compose
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Документация</h2>
+            <p>
+                <a href="https://documenter.getpostman.com/view/9835426/Tzm5FwLV" class="button" target="_blank">
+                    📖 API Documentation (Postman)
+                </a>
+            </p>
+            <p><strong>Локальные файлы:</strong></p>
+            <ul>
+                <li><code>README_OST.md</code> - Описание проекта</li>
+                <li><code>PROJECT_DESCRIPTION.md</code> - Полная документация</li>
+                <li><code>PROJECT_DESCRIPTION.docx</code> - Word документ</li>
+                <li><code>QUICK_START_RU.md</code> - Инструкции по запуску</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Альтернативные способы доступа</h2>
+
+            <h3>1. Через командную строку:</h3>
+            <pre style="background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;">
+# Войти в систему
+curl -X POST http://localhost:8000/api/user/login/ \\
+  -H "Content-Type: application/json" \\
+  -d '{"email": "admin@loanms.com", "password": "admin123"}'
+
+# Получить профиль (замените TOKEN на полученный токен)
+curl http://localhost:8000/api/user/profile/ \\
+  -H "Authorization: Bearer TOKEN"
+            </pre>
+
+            <h3>2. Скачать проект на свой компьютер:</h3>
+            <p>Скачайте архив <code>OST-Loan-Management-System.tar.gz</code> и запустите локально:</p>
+            <pre style="background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px;">
+cd OST-Loan-Management-System
+./setup_and_run.sh
+./run_server.sh
+            </pre>
+        </div>
+
+        <div class="section">
+            <h2>✨ Возможности системы</h2>
+            <ul>
+                <li>✅ Три роли пользователей (Customer, Agent, Admin)</li>
+                <li>✅ JWT аутентификация с 2-часовыми токенами</li>
+                <li>✅ Создание и управление кредитами</li>
+                <li>✅ Одобрение/отклонение заявок</li>
+                <li>✅ История изменений (audit log)</li>
+                <li>✅ Фильтрация по статусам</li>
+                <li>✅ CORS поддержка</li>
+                <li>✅ Permission-based доступ</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 2px solid #e9ecef;">
+            <p style="color: #666;">
+                <strong>OST - Loan Management System</strong><br>
+                Version 1.0.0 | Production Ready ✅
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Проверка доступности API
+        fetch('http://localhost:8000/api/')
+            .then(response => {
+                console.log('API Status:', response.status);
+            })
+            .catch(error => {
+                console.log('API check failed:', error);
+            });
+    </script>
+</body>
+</html>
